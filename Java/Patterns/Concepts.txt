@@ -1,0 +1,26 @@
+Approach 
+
+- first we initialize 
+n which is total number of rows 
+star which is total star in the first rows
+spaces (total space in first row)
+rows which is 1 
+
+procedure - 
+
+there will be always outer loop which is for number of rows. 
+then we will see how many tasks are there in a single line of pattern if two then outer loop will contain two loops 
+
+ex- three task in the row
+
+while (row <= n){
+    //loop for stars
+
+    //loop for space
+
+    //loop for stars
+
+    //updations like row++ , star--, space +=2 etc.
+}
+
+*)Mirroring - In star we do horizontal mirroring (just if & else condition after row exceeds where mirroring taking place just reverse the condition) and in numbers we do vertical mirroring 

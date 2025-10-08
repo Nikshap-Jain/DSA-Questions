@@ -1,0 +1,15 @@
+*)mark means a variable. bit referes to bit operator means works on 0 and 1.
+
+*) && , ||, ! are logical operator .  & and ! are bitwise operator , they are faster than logical operator.
+
+*) other bitwise are ^ (xor) if same than 0 otherwise 1 (ex - 0 0 = 0 and 1 0 = 1). and ~ not operator basically complement same as logical not but it work on 0 and 1.
+
+- xor property - if xor taken from 0 we get same number , if xor of same number taken than its 0 and associative property.
+
+*) << ->  Left shift (multiply by 2) and >> -> right shift (a >> n  : a Divide by 2 ^ n)
+
+*) n & 1 and n % 2 is same thing
+
+*)unset means 0 and set means 1
+
+*) suppose x is number like 01010101100 and need to clear last bit means from last i need to make 1 as 0 so just take x & x -1 we will get 01010101000.

@@ -1,0 +1,25 @@
+*) Child class inherit property of parent using extends keyword.
+
+*) There are 4 ways to create obj main when child class inherit parent. -
+
+-case 1: - p obj = new p() . everything normal.
+
+-case 2:
+- p obj = new c();
+-variable mai jisme object bnra vo chlega mtlb by default p ke varible access honge (kiuki complile time mai LHS pehele chlega), so typecast krna hoga object ko tbhi hoga. but method mai method override hoga toh child ka chlega (kiuki vo runtime polymorphism mai pehle RHs mai chlta hai toh c ka bnega).
+
+case 3: 
+- c obj = new p(); // not allowed because complile time mai hum c ki saari properties access kre hai pr object p ka bna hai jo allowed ni hai.
+
+case 4 : 
+- c obj = new c(); 
+
+*)Multilevel inheritance is allowed but multilevel inheritance not allowed because suppose there are 2 parents of a child now if we create obj so there is confusion which method of parents should be allowed.
+
+*) Method Overloading : complile time (complile time polymorphism) pr hoga mtlb same class mai function ka same name and return type hoga difference hoga no of parameters and type of parameters mai . but method override mai vo bhi same ho jayega.
+
+*)if variable arguement ho then use this variable - ...name , it store all arguement as array.
+
+
+*) there is object class which is by default parent of all class , lan package have it.
+*) toString(), if we print reference variable of anything it run automatically object class have it. We can override it return whatever we want.

@@ -1,0 +1,21 @@
+*) Backtracking is changes which recurrsion cant undo. like recurrsion can undo the changes in the argument of the recursive call because they are for the next frame but suppose we make changes before recursive call like changing a value in an array so this change will store in heap and our permanent so for undo these changes,  after the recursive call we need to undo the changes manually.
+
+*)So changes which recursion can't do it by itself then we need Backtracking which is nothing but manually undoing the changes after recursive call. for ex permuation of 2 queen question. 
+
+*)Combination means selection nCr , of elements and permutation means arrangement of elements within the selection . for example a1 and a2 two elements are selected and a1a2 and a2a1 are there arrangements. 
+
+🧠 Formula:
+
+If you have n elements and want to pick r:
+	•	Permutations = nPr = n! / (n - r)!
+	•	Combinations = nCr = n! / (r! * (n - r)!)
+
+For your example:
+	•	n = 2, r = 2
+	•	Permutations = 2P2 = 2! / (2 - 2)! = 2 / 1 = 2
+	•	Combinations = 2C2 = 2! / (2! * 0!) = 2 / (2 * 1) = 1
+
+Note = in code to find permutation we need to go backwards also (basically again start from 0) but for combination go only forward (start from next elemet).To find combination first you need permutation.
+
+helping Note - To analyse logic don't just go deep in one direction if that not work try to analyse how first level come. to identify valid iteration in loop
+

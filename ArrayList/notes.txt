@@ -1,0 +1,1 @@
+In backtracking if we add an element in 1d list and than remove it than if we add this 1d list in 2d like this - twodList.add(oneDList) so backtrack krte krte 1d khali so just do this List.add(new ArrayList<>(1dList)); basically we are creating copy ex - In bracktracking combination sum question.

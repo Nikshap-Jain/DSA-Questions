@@ -1,0 +1,38 @@
+1) if Package is same we don't need to import the class we can directly make an object of it.
+
+2) when studentClient class execute it dependend classes blueprint store in heap.
+3)object made in heap with default value.
+4)this keyword store the address (reference) of the current object in the class.
+- general use case of this is if local varible name is same as object variable so to access object variable we use this to access data of current reference value.
+
+5)USE OF STATIC
+
+when we make func or variable static then it make the particular function class oriented not object oriented means it value get fixed for all objects.
+
+- here we don't need to create object to call static method ,
+        // we can directly call them because they are class oriented.
+
+- we can't call non static in static but reverse is true.
+- in main we use static so that jvm is able to execute it without creating obj because it can't create object.
+
+- static block - execute before main.it automatically execute when we use class means we create first obj of it than static block automatially execute.
+
+6)Constructor
+
+-kind of a method but automatially execute to intitialize class variable. It always be public. and its name same as class name always.
+
+-We don't create any Constructor it will make it a default one but if its parameterised than we need to pass parameters in instance creation. ex Person p = new Person(parameters). here new Person() - object and Person() - Constructor calling.
+
+Note - if we execute than first step is memory allocation (default value to variable i.e null) 2) parsing i.e given value assgined(default value assigned by me) to the variable 3) than Constructor execute and assign value if its parameterised.
+
+7)Encapsulation
+- if class variable is private so to access it we use getter method to get value and setter to update value that is Encapsulation. so its use is that we can apply conditions in setter or getter like negative not allowed.
+
+8)Exception
+- there is a class in java called Exception which is lan Package which by default imported.
+-throws we use a method signature ki exception aa skta hai.
+- throw keyword will create an error.
+
+throw will throw error on the calling method. and throws keyword on that method tell that this method can give exception. here error never handled because on main we need to apply throws Exception than jvm terminate the program.
+
+- other way is try if there is code which can give error we can write it in try block and it exception handle in catch and after that there is finally which will always execute here program never terminate because it is handled in catch.

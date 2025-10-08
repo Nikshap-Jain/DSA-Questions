@@ -1,0 +1,11 @@
+*)How to find question is of DP - 
+i. Problem overlapping
+ii. optimal substructure - means same conditions for recurssion
+
+*)Two ways to solve dp question
+
+i. Top-down / Recursive / memoization
+ii. Bottom up / Iterative apporach / loop /tabulation
+
+
+*)parameter vary , suppose 1 parameter vary so 1D dp

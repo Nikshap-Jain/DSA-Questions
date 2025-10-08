@@ -1,0 +1,30 @@
+1) Stack - lifo : primitive class in heap 
+- methods : peek (get first element, top element) , pop (delete), push (add element on top), size, isEmpty(check if stack empty or not).
+
+ex - Stack<Integer> st = new Stack<>();
+    sout(st.capacity()) // by default 10'
+    st.push(10); add 10
+    st.push(20);
+    st.push(30);
+    st.peek(); view top element
+    st.size(); 3
+    st.isEmpty(); false
+
+    accesss by for each loop -  for (int v : st){
+        sout(v) // output - 10, 20 , 30 
+    }
+
+2) In stack vector are used internally which make it synchronous (thread safe).
+
+3)If question is to add element at last or mid in stack without creation of other stack or other data structure than use backtracking to empty and add and then push again.
+
+4) Monotonic stack (strictly increasing or decreasing via element) question - classical questions : next greater, next smaller, prev greater etc. 
+
+5) Dynamic mai inherit kr denge.
+default - outside package accesseble nhi hai 
+protected - outside package se accessible nhi hai but inheritable hai.
+
+- Pattern 321
+- daily temp
+- strawed  collision.
+- 1793

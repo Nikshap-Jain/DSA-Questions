@@ -1,0 +1,15 @@
+1)abstract : means internal functionality hide, abstract keyword is used with class and method
+abstract methods don't have body.
+
+- if method single method is abstract in a class than class will also be abstract.
+- Object of abstract class is not possible , we can use it only by inheritance 
+- or in new versions if you want to make object of abstract class than you need to use anonymous way
+
+2)Interface: collections of abstract methods, all method are by default abstract
+- interface keyword is used to make an interface and a class will use implement the interface using implement keyword.
+
+-by default variable in interface are public static final 
+-object of interface class can be only by anonymous way.but in that need to give body to everything
+-static methods body is possible in interface after java8
+
+3)final : final variable will become constant , final class will not be inherited, final method can't be override

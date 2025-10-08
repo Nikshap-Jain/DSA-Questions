@@ -1,0 +1,16 @@
+1)gcb (greatest common factor) or hcf (highest common factor) are maximum number which divide two or more number without leaving a remainder. code - euclid 
+
+2) Lcm (lowest common multiple)
+
+multiple means 6 : 6, 12 , 18 (these are multiple)
+24 : 24, 48, 72 
+
+lowest common multiple between 6 and 24 is 24 .
+
+3) Lcm(a , b) * Hcf(a, b) = a * b , so from here we can find lcm. 
+
+4) To find the last digit of the number just divide by 10.if we need to drop last digit use /. 
+
+5) nCr = n numbers mai se r items ko select krne ke kitne possible ways honge.
+
+6) Try to avoid division because ans get loss , use multiplication instead.

@@ -1,0 +1,5 @@
+1) Array is a class in java.
+2) class -> non primitive (heap) and primitive and function call all in stack.
+3) array adddress (base address) store in stack but its created in heap.
+4) arr[i] here internal calculation done . i.e baseAdd + index * 4(if int).
+5) Java always call by value not reference.

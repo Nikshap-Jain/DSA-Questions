@@ -1,0 +1,33 @@
+*)It is finite Set of edge and vertex.
+*)all trees are graphs.
+*)Two types of graph - directed and undirected (now they are also divided into subcategories called weighted and unweighted graph)
+
+*)Graphs store as 
+-Adjacency Matrix (we don't use it because of wastage of storage)
+
+-Adjacency List (don't use it because of increase in tc for traversal)
+
+-Hashmap (best , we use this when weight is given otherwise list)
+
+*)Complete graph : every vertex is connected to all vertex.
+
+*)two search algorithm - bfs and dfs 
+- remember these 5 things in bfs and dfs :
+remove,ignore,markedvisted, SelfWord, Add UnVisited in queue 
+- when question ask shortest path we will do bfs
+
+*)Disconnected graph : component more than one
+
+- We use BFT : BreathfirstTraversal (bsf in loop) to get all vertex of Disconnected graph
+
+*)A graph is a tree when its acyclic and have single component.
+
+*)Bipartite : if it is possible to divide graph in two independent sets such that element within the set are not connected. (also if we need to put two color on the vertices such that two adjacent vertices don't have same colour is implementation of bipartite if it is possible to do it than also graph is bipartite) 
+
+- All acyclic graphs are bipartite.All even cylic (total edges are even) are always bipartite and if we get a single odd cycle than graph is never bipartite.
+
+*)Spanning tree : subset of graph which has minimum number of edges and all vertices are connected.
+
+- minimum spanning tree : spanning tree which has least weight it can be found by two algo kruskal and prims. both implementation give same time complexity. krushkal is implemented using DSU(competitive programming concept) so we will not do it use prims always.
+
+-Dijkstra : It will give shortest path from source to all vertext

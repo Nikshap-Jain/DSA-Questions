@@ -1,0 +1,55 @@
+# Java String & Character Methods - Quick Reference
+
+## Character Class Methods
+
+Character.isUpperCase(ch)  // Check if char is uppercase
+Character.isLowerCase(ch)  // Check if char is lowercase
+Character.isDigit(ch)      // Check if char is digit
+Character.isLetter(ch)     // Check if char is letter
+
+
+## String Case Methods
+
+str.toUpperCase()          // Convert to uppercase
+str.toLowerCase()          // Convert to lowercase
+str.equals(str.toUpperCase())  // Check if string is all uppercase
+str.equals(str.toLowerCase())  // Check if string is all lowercase
+
+
+## Important Notes
+- **String class has NO** `isUpperCase()` or `isLowerCase()` methods
+- Use `Character` class for single character operations
+- For strings, use `equals()` with `toUpperCase()/toLowerCase()` for case checking
+- String concatenation in loops is inefficient - consider `StringBuilder`
+
+-String word = String.valueOf(str.charAt(0));  // ✅ Convert char to String 
+String word = str.charAt(0) + "";             // ✅ Also valid (implicit conversion via concatenation)
+
+*) a = 97 z = 122  and A = 65 , Z = 90
+
+*) char c = 0; assign empty char
+
+*)str.toCharArray() method: Returns a char[] array and str.split() : give String array. In this case str.split("") it give an empty string also in the output.
+
+*) String str = new String(charArray); by this we can directly create string form char array. 
+
+*)In Java, you can convert a String into an int using the Integer.parseInt() method or Integer.valueOf().
+
+*)Collections.sort(list);  // Sorts in ascending order
+
+*)String str = "hello world";
+System.out.println(str.contains("hello"));  // true
+
+*)char ch = '5';
+int num = ch - '0'; // Output: 5
+// OR
+int num2 = Character.getNumericValue(ch); // Output: 5
+
+*)ans.compareTo(temp). compareTo method returns:
+
+A negative number if ans is lexicographically smaller than temp.
+Zero if they are equal.
+A positive number if ans is lexicographically larger than temp
+
+Scanner sc = new Scanner(System.in);
+        String str = sc.next();

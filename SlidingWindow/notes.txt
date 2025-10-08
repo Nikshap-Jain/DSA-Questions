@@ -1,0 +1,17 @@
+1) if input is array or string with number k and we need to work on subarray or substring than question might be of sliding window.
+
+2)There are three steps of sliding window - i) grow ii) shrink iii) calculate ans
+
+ex - MaxSumOfWindowSizeK.java
+
+3) variable size window
+
+si = 0, ei = 0
+- while (ei < n){
+    //grow
+    //Strink
+    do something with si 
+    //ansCalculate
+
+    ei++
+}
