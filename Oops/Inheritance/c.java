@@ -1,7 +1,7 @@
 package Oops.Inheritance;
 
 public class c extends p {
-    int d = 2;
+    int d1 = 2;
     int d2 = 20;
 
     public void fun() {

@@ -1,6 +1,8 @@
 *)How to find question is of DP - 
 i. Problem overlapping
-ii. optimal substructure - means same conditions for recurssion
+ii. optimal substructure - means same operations for sub parts and this is happen in recurssion so no need to worry
+
+=> dp question will be of recursion with overlapping solution problem.
 
 *)Two ways to solve dp question
 
@@ -8,4 +10,8 @@ i. Top-down / Recursive / memoization
 ii. Bottom up / Iterative apporach / loop /tabulation
 
 
-*)parameter vary , suppose 1 parameter vary so 1D dp
+*)parameter vary , suppose 1 parameter vary so 1D array will be used for storage in top down approach take the same array taken in bottom up and fill the base case in it than solve (check fibonacci).
+
+- To decide what decide  dp[] 1d or 2d etc, ask this question:"Does the answer change depending on this parameter?" 
+
+- if we start recursion from front we fill dp array from last vice versa.(start recursion from back dp array will be filled from start). ex - house robber.

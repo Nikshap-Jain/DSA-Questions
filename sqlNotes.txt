@@ -1,0 +1,104 @@
+1) Constrains - NOt null , unique, 
+
+primary key can be combination of two columns
+
+- create table temp(
+    id int,
+    name varchar(40), 
+    rollNo int,
+    Primary Key (id, rollNo)
+);
+
+foreign key, : Prevents actions that destroy links between tables
+ create table temp(
+    id int,
+    name varchar(40), 
+    rollNo int,
+    Foreign Key (id) references TAbleName(primary key of tableName)
+);
+
+=> table which contain foreign key is called child table and table which contain this foreign key as primary key is parent table.
+=>an action performed on a row in the parent table (which contains the primary key) is automatically propagated to the related rows in the child table (which contains the foreign key)
+
+create table temp(
+    id int,
+    name varchar(40), 
+    rollNo int,
+    Foreign Key (id) references TAbleName(primary key of tableName),
+    cascade on update,// automatically child (temp) mai update hojayega agr parent mai kuch changes honge primary key mai
+    cascade on delete, // agr pk from parent mai kuch delete hua toh vo records(rows) yaha bhi delete hojayenge pure.
+);
+
+
+Check :
+
+ex - create table temp(
+    id int,
+    name varchar(40), 
+    age int,
+    Constraint anyName CHECK (age >= 18 AND id = 12)
+);
+
+- create table temp(
+    age INT CHECK (age >= 18)
+);
+
+
+*)Limit clause 
+Select column form table LIMIT 3; give only three rows of the given table
+
+*)Group by clause
+- group the rows which contains same value based on a specific column (we want)
+
+- Select city , count(name) from student
+group by city; // row whose city value are same will be grouped like Delhi ka ek group bn jayega and un name ka count mil jayega jaha city mai Delhi hai.
+
+- ab yaha jo bhi column select ke sath mentioned hoge jispr aggregate function nhi lga vaha group by lgana zaruri hai vrna error ayega
+
+*)Having
+- Where can't be apply on group so Having is use to apply condition on group .
+The Rule: If you use GROUP BY, every column in your SELECT or HAVING clause must either be:
+Inside the GROUP BY clause (like item).
+
+Inside an aggregate function (like MAX(), SUM(), COUNT()).
+
+-Select item , count(amount) from Orders 
+Where amount >= 300
+Group by item
+Having Max(customer_id) > 3; 
+
+column used in Having will always in group by else it should be in aggregate function.
+
+-Select item , count(amount) from Orders 
+Where amount >= 300
+Group by item
+Having item > 3; //item is in GROUP BY so we are able to use as it is because grouping already hogyi aggregate se grouping krane ki zaurat ni hai 
+
+Where Conditons on rows and Having put conditions on groups--
+
+*)order- 
+
+- Select
+-Where
+- Group by
+- Having
+-Order by DESC
+
+
+*)"DELETE is a DML command that scans the table and removes rows one by one, recording each in the transaction log, which makes it slower but allows for rollbacks. TRUNCATE is a DDL command that deallocates the data pages entirely, making it much faster, but it resets the Identity (Auto-increment) keys and usually cannot be rolled back easily."
+
+
+*)Joins - combine rows based on same coloumn
+
+*)inner join - intersection of two tables
+
+Select * from Orders
+inner join Customers
+on Orders.customer_id = customers.customer_id;
+
+Select Customers.first_name , Orders.item 
+from customers
+inner join orders
+on customers.customer_id = orders.customer_id;
+
+*)left join - tableA ke saare and tableB ke only vo jo similar hai

@@ -2,6 +2,7 @@
 abstract methods don't have body.
 
 - if method single method is abstract in a class than class will also be abstract.
+- it is also possible that class is abstract but it dont have any abstract method.
 - Object of abstract class is not possible , we can use it only by inheritance 
 - or in new versions if you want to make object of abstract class than you need to use anonymous way
 

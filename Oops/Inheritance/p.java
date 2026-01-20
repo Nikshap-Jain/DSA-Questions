@@ -1,8 +1,8 @@
 package Oops.Inheritance;
 
 public class p {
-    int d = 1;
-    int d1 = 10;
+    int d1 = 1;
+    int d2 = 10;
 
     public void fun() {
         System.out.println("Fun In P");

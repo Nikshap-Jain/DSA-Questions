@@ -1,17 +1,64 @@
-1) if input is array or string with number k and we need to work on subarray or substring than question might be of sliding window.
+sliding window is the problem solving technique.
 
-2)There are three steps of sliding window - i) grow ii) shrink iii) calculate ans
+1) if input is array or string with number k (with condition of various kind like maxima or minima or on k etc) and we need to work on subarray or substring than question might be of sliding window.
+
+- Question can be of fixed size and variable size
+
+2)There are two steps of sliding window of fixed size - i) Calculate first window ans ii) grow,shrink,update ans
+
+3)There are three steps to solve sw of variable size i ) grow ii) shrink iii) cal ans
+
+like - fi = 0, ei = 0; ans = 0, while (ei < length && fi <= ei){
+    grow
+    shrink
+    ans 
+}
 
 ex - MaxSumOfWindowSizeK.java
+
+class Solution {
+    public int slidingWindowTemplate(int[] nums, int k) {
+        int l = 0;
+        int sum = 0;
+        int ans = 0;
+
+        // 1. Always expand 'r' (right pointer) one by one
+        for (int r = 0; r < nums.length; r++) {
+            // Add the new element to the window
+            sum += nums[r];
+
+            // 2. Shrink 'l' (left pointer) IF sum becomes too big
+            // (Note: This only works if numbers are positive!)
+            while (sum > k && l <= r) {
+                sum -= nums[l];
+                l++;
+            }
+
+            // 3. Check if we found the target
+            if (sum == k) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 
 3) variable size window
 
 si = 0, ei = 0
 - while (ei < n){
     //grow
-    //Strink
+    //Shriñk
     do something with si 
     //ansCalculate
 
     ei++
 }
+
+
+Key Takeaway
+The question to always ask yourself is:
+
+"If I add one element to the right or remove one element from the left, can I update my window's condition in O(1) time?"
+
+If the answer is no (either because of negative numbers or a complex check like a palindrome), it's probably a trap.

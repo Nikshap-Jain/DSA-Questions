@@ -1,3 +1,169 @@
-1)Queue : Fifo , interface in java not a class. 
+Queues
 
-2)methods - enqueue : add element 
+In LeetCode, a Queue is a First-In, First-Out (FIFO) data structure. Think of it as a line for a roller coaster: the first person to get in line is the first person to get on the ride.
+
+⚙️ How to Create a Queue
+
+You'll almost always use LinkedList as the implementation.
+Java
+
+
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+// Create a queue of integers
+Queue<Integer> queue = new LinkedList<>();
+
+// Create a queue for Tree Nodes (common in BFS)
+Queue<TreeNode> treeQueue = new LinkedList<>();
+
+
+🚀 Core Methods
+
+These are the three "LeetCode-safe" methods you need. They do not throw exceptions if the queue is empty.
+* queue.offer(value); (It is equivalent to add)
+    * What it does: Adds an element to the back (tail) of the queue.
+    * Example: queue.offer(5);
+* queue.poll();  — ( it is equivalent to remove)
+    * What it does: Removes and returns the element from the front (head) of the queue.
+    * Returns: The element, or null if the queue is empty.
+    * Example: int frontElement = queue.poll();
+* queue.peek();
+    * What it does: Looks at the element at the front of the queue without removing it.
+    * Returns: The element, or null if the queue is empty.
+    * Example: int frontElement = queue.peek();
+
+🛠️ Helper Methods
+
+* queue.isEmpty();
+    * What it does: Returns true if the queue is empty. This is your main loop condition for BFS.
+* queue.size();
+    * What it does: Returns the number of elements. Used in BFS for processing one level at a time.
+
+
+Pattern: Breadth-First Search (BFS)
+
+This is the #1 use case for a Queue on LeetCode. It's used for level-order traversal of trees and shortest paths in graphs.
+Here is the standard BFS template for a binary tree:
+Java
+
+
+
+// Assumes you have a TreeNode class
+public void bfs(TreeNode root) {
+    if (root == null) {
+        return;
+    }
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root); // Add the starting node
+
+    // Loop as long as there's something in the queue
+    while (!queue.isEmpty()) {
+        
+        // --- This part is key for level-by-level ---
+        int levelSize = queue.size(); 
+        
+        // Process all nodes at the current level
+        for (int i = 0; i < levelSize; i++) {
+            TreeNode currentNode = queue.poll(); // Get node from the front
+
+            // Do something with the node
+            System.out.println(currentNode.val); 
+
+            // Add its children to the back of the queue
+            if (currentNode.left != null) {
+                queue.offer(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                queue.offer(currentNode.right);
+            }
+        }
+        // Once this inner loop finishes, you've completed one level
+    }
+}
+
+⭐️ Special Case: PriorityQueue
+
+This is a different kind of queue you'll also see. Instead of FIFO, it's a "priority-in, priority-out" queue. It always poll()s the smallest element (by default).
+* How to create (min-heap): Queue<Integer> pq = new PriorityQueue<>();
+* How to create (max-heap): Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+* Use Cases: "Top K" problems, Dijkstra's algorithm, merging sorted lists.
+The methods (offer, poll, peek) are the same, but their behavior is based on priority, not insertion order. Tc : log N
+
+
+You're absolutely right. That was a big omission. My apologies.
+The Deque (and specifically ArrayDeque) is the pro-choice for both Queues and Stacks in Java for LeetCode. It's faster and more flexible than LinkedList or the legacy Stack class.
+Here’s the information that should have been included.
+
+
+⭐️ The "Pro" Choice: Deque (ArrayDeque)
+
+A Deque (pronounced "deck") stands for Double-Ended Queue. It's a structure that lets you add or remove elements from both the front and the back.
+This flexibility means it can act perfectly as a Queue (FIFO) or as a Stack (LIFO).
+For LeetCode, you should generally default to ArrayDeque because it's backed by a resizable array and is more efficient than LinkedList (which has overhead for node objects).
+
+⚙️ How to Create a Deque
+
+You always declare it as a Deque but instantiate it as an ArrayDeque.
+Java
+
+
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+// Create a Deque (to be used as a Queue or Stack)
+Deque<Integer> deque = new ArrayDeque<>();
+
+🚀 Core Methods
+
+This is why it's so powerful. It has two sets of methods.
+
+1. Using Deque as a Queue (FIFO)
+
+These methods are for "queue" behavior (add to back, remove from front).
+* deque.offerLast(value);
+    * What it does: Adds an element to the back (tail) of the deque.
+    * (This is the same as queue.offer())
+* deque.pollFirst();
+    * What it does: Removes and returns the element from the front (head).
+    * Returns: The element, or null if empty.
+    * (This is the same as queue.poll())
+* deque.peekFirst();
+    * What it does: Looks at the element at the front without removing it.
+    * Returns: The element, or null if empty.
+    * (This is the same as queue.peek())
+
+2. Using Deque as a Stack (LIFO)
+
+These methods are for "stack" behavior (add to front, remove from front).
+* deque.offerFirst(value);
+    * What it does: Adds an element to the front (head) of the deque.
+    * (This is the same as stack.push())
+* deque.pollFirst();
+    * What it does: Removes and returns the element from the front (head).
+    * Returns: The element, or null if empty.
+    * (This is the same as stack.pop())
+* deque.peekFirst();
+    * What it does: Looks at the element at the front without removing it.
+    * Returns: The element, or null if empty.
+    * (This is the same as stack.peek())
+Note: The ArrayDeque class also has push() and pop() methods, which are equivalent to offerFirst() and pollFirst(). They are included specifically so it can be a drop-in replacement for a Stack.
+
+🛠️ Key LeetCode Use Cases
+
+1. A Faster Queue for BFS:
+    * For any standard BFS, just replace Queue<Integer> q = new LinkedList<>(); with Deque<Integer> q = new ArrayDeque<>();
+    * Use the queue methods (offerLast, pollFirst). It will be more performant.
+2. A Better Stack:
+    * Never use Stack s = new Stack<>(); (it's old and slow).
+    * Always use Deque<Integer> s = new ArrayDeque<>(); and the stack methods (offerFirst, pollFirst).
+3. Monotonic Deque (Advanced Pattern):
+    * This is the true power of a Deque.
+    * Problem: Sliding Window Maximum (LeetCode 239).
+    * Use Case: You need to efficiently find the maximum in a sliding window. You use a Deque to store indices of elements, and you add/remove from both ends to keep the deque in decreasing order of values. This is a pattern you can't solve efficiently with a normal queue or stack.
+
+
+

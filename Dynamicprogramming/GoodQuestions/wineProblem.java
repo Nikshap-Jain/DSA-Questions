@@ -1,5 +1,7 @@
 package Dynamicprogramming.GoodQuestions;
 
+/*Given n wines in a row, with integers denoting the cost of each wine respectively. Each year you can sell the first or the last wine in the row. Let the initial profits from the wines be P1, P2, P3..Pn. In the Yth year, the profit from the ith wine will be Y*P[i). The goal is to calculate the maximum profit that can be earned by selling all the wines. Suppose, wine array denotes the initial cost of each wine in the first year. winell =[2,3,5, 1, 4] */
+
 public class wineProblem {
     public static void main(String[] args) {
         int[] wine = { 2, 3, 5, 1, 4 };

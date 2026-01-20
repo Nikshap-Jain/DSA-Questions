@@ -1,0 +1,45 @@
+1) Priority queue (in built) and heap (not inbuilt). In questions both are same thing but in theroy there are some difference.
+
+2)Pq : different from normal queue , phele vo element niklega jiski Priority zyada hogi ab ye Priority question to question vary kregi.
+
+3)heap: It is complete binary tree (last level ko chhod kr sbke 2,2 bache hone chaiye and last level mai bhi left to right order mai hone chaiye child) in this some Priority associated with it.
+
+- parent Priority always > child Priority
+
+- Max heap: large value high Priority (means root value is maximum)
+- Min heap: small value high Priority (means root value is minimum)
+
+4)Index of child in heap 
+- Left child index = 2 * parent index + 1
+- right child index = 2 * parent index + 2
+
+and if parent index = (child index - 1)/2
+
+IMPORTANT : representation of heap is complelete binary tree otherwise its implemented using arraylist and first element of arraylist is mini(if min heap) or max (if max heap).
+
+5) When we add element in heap we need to upheapify means we need to update the heap from down to up and when we remove element than first we need to swap first and last than delete (to get log(n)). so now we need to update head from top to bottom classed downheapify.
+
+6)In built priority queue : PriorityQueue<Integer> pq = new PriorityQueue() , now pq is by default min heap (internally use min heap). 
+
+PriorityQueue<Integer> pq = new PriorityQueue(Collections.reverseOrder()) : Max heap 
+
+7) Heap Sort : add all the element of array in Priorityqueue and than remove than one by one and add them to array (tc : 2nlogn)
+
+8)Suppose we have priority queue of class and now we need to sort something in it in this case we use comparator and we need to Override compare method- we can also use comparator in Arrays.sort . when array contains classes.
+
+- PriorityQueue<int []> pq = new PriorityQueue<>(new Comparator<int []>(){
+            public int compare(int arr[], int arr2[]){
+                return Integer.compare(arr[1], arr2[1]);
+            }
+        });
+
+
+
+instead of comparator use lamba they are same thing but lambda is easy. 
+
+above here -         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(a[0], b[0])); // ascending and if you want descending just reverse a and b in Integer.compare()
+
+note : Integer.compare(a, b) give a == b : 0, a > b : 1, a < b : -1
+
+
+

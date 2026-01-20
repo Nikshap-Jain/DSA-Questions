@@ -1,6 +1,6 @@
 0)Its like we do first task than ask recursion to do the rest. whenever we have choices we use recursion.
 
-1) Ex - factorial , here we have two choices so we need two recursive calls.
+1) Ex - fibo , here we have two choices so we need two recursive calls.
 
 2)To understand recursion understand to find sub sequence of the string. In that just think how you can print 1st level that is (a and blank) . rest recursion will do don't think about that.Don't think about inner working just think about first level.
 

@@ -24,6 +24,28 @@ public class houseRobber198 {
         return dp[i] = Math.max(rob, dont_rob);
     }
 
+    // Bottom up approach - tabular for above code (recursion from front so we are
+    // filling dp array from last)
+    // public int rbTab (int nums[]){
+    // int n = nums.length;
+    // int dp[] = new int[n];
+    // dp[n - 1] = nums[n - 1];
+    // if (n >= 2){
+    // dp[n - 2] = Math.max(dp[n -1], nums[n - 2]);
+    // }
+
+    // for (int i = n - 3; i >= 0; i--){
+    // int a = nums[i] + dp[i + 2];
+    // if (a > dp[i + 1]){
+    // dp[i] = a;
+    // }
+    // else{
+    // dp[i] = dp[ i + 1];
+    // }
+    // }
+    // return dp[0];
+    // }
+
     public static int Robber2(int[] arr, int i, int[] dp) {// topdown with backward recursion
         // Here array fill from start
         if (i < 0) {
@@ -38,7 +60,7 @@ public class houseRobber198 {
         return dp[i] = Math.max(rob, dont_rob);
     }
 
-    public static int RobberBU(int[] arr) { // in bottom up is same as backward recursion
+    public static int RobberBU(int[] arr) { // in bottom up is same as backward recursion so we fill dp array from front
         // Here array fill from start
         if (arr.length == 1) {
             return arr[0];

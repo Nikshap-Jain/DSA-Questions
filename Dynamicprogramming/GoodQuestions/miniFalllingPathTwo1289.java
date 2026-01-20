@@ -22,7 +22,7 @@ public class miniFalllingPathTwo1289 {
         int ans = Integer.MAX_VALUE;
         for (int col = 0; col < matrix[0].length; col++) {
             if (cc != col) {
-                ans = Math.min(MinimumPath(matrix, cr + 1, cc, dp), ans);
+                ans = Math.min(MinimumPath(matrix, cr + 1, col, dp), ans);
             }
         }
 

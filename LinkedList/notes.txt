@@ -1,0 +1,45 @@
+*)Linear datastructure but non continuous data structure .head represent first node and tail represent the last node.
+
+LinkedList method for leetcode
+
+Ah, LinkedList. It's basically a chain, and the methods you'll use most are the ones for messing with the two ends of that chain.
+Forget most of the List interface methods like get(int index). Using that is a classic LeETCode trap—it's $O(n)$ and will get you a Time Limit Exceeded.
+For LeetCode, you're almost always using LinkedList as a Queue, Stack, or Deque (double-ended queue).
+These are your bread and butter:
+
+👑 The "Big Six" (Queue & Stack Ops)
+
+These are the ones you'll use 90% of the time. They are all $O(1)$ operations.
+* addFirst(E e): Adds an element to the front. (Your push for a stack).
+* addLast(E e): Adds an element to the end. (Your offer for a queue. This is also what plain old add(E e) does).
+* removeFirst(): Removes and returns the element from the front. (Your pop for a stack or poll for a queue).
+* removeLast(): Removes and returns the element from the end.
+* getFirst(): Looks at the first element without removing it. (Your peek).
+* getLast(): Looks at the last element without removing it.
+
+🦺 The "Safer" Versions (Use These!)
+
+The methods above (removeFirst, getFirst, etc.) will throw an exception if the list is empty. This is annoying and can crash your code.
+LeetCode solutions almost always use the "safer" versions that return null instead.
+* pollFirst(): Same as removeFirst(), but returns null if empty.
+* pollLast(): Same as removeLast(), but returns null if empty.
+* peekFirst(): Same as getFirst(), but returns null if empty.
+* peekLast(): Same as getLast(), but returns null if empty.
+* offerFirst(E e) / offerLast(E e): The "safer" add methods (they return true/false instead of throwing exceptions on capacity failure, but for a LinkedList this isn't really an issue). addFirst/addLast are fine.
+My advice: Just use pollFirst(), pollLast(), peekFirst(), peekLast(), and addLast(). That set will solve most of your problems.
+
+🔧 The "Janitor" Methods
+
+* size(): How many things are in it.
+* isEmpty(): true if size() == 0. Always use this to check before calling poll() or peek().
+
+🚨 The "DON'T USE THIS" Method
+
+* get(int index): This is the trap. It's $O(n)$. It has to walk the whole list from the beginning to find your element. If you need to access elements by index, you made a mistake. Use an ArrayList.
+Summary: Think of LinkedList as a fast way to add/remove from the ends. Use it for Sliding Window Deque problems, Breadth-First Search (as a Queue), or any time you need a simple Stack.
+Got a specific problem type in mind, like Sliding Window Maximum?
+
+
+The rule is simple:
+* If you need to access elements by index (get(i)), use ArrayList.
+* If you only need to add/remove from the front and back, use LinkedList.

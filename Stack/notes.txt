@@ -28,3 +28,107 @@ protected - outside package se accessible nhi hai but inheritable hai.
 - daily temp
 - strawed  collision.
 - 1793
+
+
+
+Stack
+
+In LeetCode, a Stack is a Last-In, First-Out (LIFO) data structure. Think of it as a stack of plates: you put a new plate on the top, and you also take a plate from the top.
+
+⚙️ How to Create a Stack
+
+You can use the standard Stack class. (See the "Pro-Tip" at the end for the faster way).
+Java
+
+
+import java.util.Stack;
+
+// Create a stack of integers
+Stack<Integer> stack = new Stack<>();
+
+// Create a stack of characters (common for parentheses)
+Stack<Character> charStack = new Stack<>();
+
+
+🚀 Core Methods
+
+These are the three methods you'll always use.
+Important: Unlike the "safe" Queue methods, pop() and peek() will throw an exception if the stack is empty. You must check isEmpty() first.
+* stack.push(value);
+    * What it does: Adds an element to the top of the stack.
+    * Example: stack.push(5);
+* stack.pop();
+    * What it does: Removes and returns the element from the top of the stack.
+    * Throws: EmptyStackException if the stack is empty.
+    * Example: int topElement = stack.pop();
+* stack.peek();
+    * What it does: Looks at the element at the top of the stack without removing it.
+    * Throws: EmptyStackException if the stack is empty.
+    * Example: int topElement = stack.peek();
+
+
+🛠️ Helper Methods (The "Safe" Way)
+
+* stack.isEmpty();
+    * What it does: Returns true if the stack is empty. You must use this before calling pop() or peek() to avoid crashing your code.
+* stack.size();
+    * What it does: Returns the number of elements in the stack.
+
+
+Pattern: Valid Parentheses / Backtracking
+
+This is the #1 use case for a Stack on LeetCode. It's used for any problem involving "matching" pairs (like parentheses) or "backtracking" (like an iterative Depth-First Search).
+Here is the standard template for Valid Parentheses (LeetCode 20):
+Java
+
+
+
+
+public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+
+    // Loop through every character in the string
+    for (char c : s.toCharArray()) {
+        
+        // If it's an opening bracket, push the
+        // *corresponding closing bracket* onto the stack.
+        if (c == '(') {
+            stack.push(')');
+        } else if (c == '{') {
+            stack.push('}');
+        } else if (c == '[') {
+            stack.push(']');
+        }
+        
+        // If it's a closing bracket...
+        else {
+            // Check for two error cases:
+            // 1. Stack is empty (e.g., "}")
+            // 2. Top of stack doesn't match (e.g., "(]")
+            if (stack.isEmpty() || stack.pop() != c) {
+                return false;
+            }
+        }
+    }
+    
+    // If the stack is empty at the end, all brackets matched.
+    return stack.isEmpty();
+}
+
+
+⭐ Pro-Tip: Use Deque for a Faster Stack
+
+The Stack class you saw above is old, slow, and "legacy."
+In modern Java and high-performance LeetCode solutions, we use a Deque (Double-Ended Queue) implemented with ArrayDeque. It's faster and more flexible.
+* How to create: Java     import java.util.ArrayDeque;
+* import java.util.Deque;
+* 
+* // This is the "pro" way to make a stack
+* Deque<Integer> stack = new ArrayDeque<>();
+*     
+* The methods are the same:
+    * stack.push(value);
+    * stack.pop(); (Still throws exception if empty)
+    * stack.peek(); (Returns null if empty, which is safer!)
+    * stack.isEmpty();
+For LeetCode, Stack<Integer> s = new Stack<>(); is fine. But if you want to be "correct" and faster, use Deque<Integer> s = new ArrayDeque<>();.

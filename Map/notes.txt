@@ -1,0 +1,34 @@
+1) Map is the interface implemented by HashMap , treemap and linkedhashmap
+
+Map<key, value> hm = new HashMap<>();
+
+2)Map contains key value pair.key cant be duplicate. NO indexing
+
+3)Operatons in hm are : put(key, value) , remove(key), containsKey(key) : return boolean, size().
+
+4)HashMap internal implementation using LinkedList. In HashMap , all operations complexity is O(1), 
+- null as a key can enter in HashMap but only 1 if more than that it will obviously overwrite value of null . As a value jitna mnn utna daalo.
+
+5)In TreeMap key are sorted and due to this all operation tc becomes o(n). Internally it uses red black tree.In TreeMap null is not allowed as here keys are sorted because for sorting comparator is used so it will give null pointer exception.
+
+6)In LinkedHashmap order is preserved.Its tc is same as HashMap. It uses doubly LinkedList.
+
+7)Here we don't have index so we use for each loop to traversal
+
+- keySet() it return Set of all keys.
+
+Set<keyType> s = map.keySet();
+for (keyType k : s){
+    System.out.println(k + ":" + map.get(k));
+}
+
+SET 
+
+1)Set is the interface and HashSet, TreeSet, LinkedHashSet implements it.
+
+Set<value> s = new HashSet<>();
+2)No indexing, No duplicate allowed.ArrayList uses indexing that's why we are able to use get method.
+
+3)Internally it uses HashMap. In TreeSet , all data gets sorted and all operations in logN
+
+4)As there is no Indexing so we use for each loop.

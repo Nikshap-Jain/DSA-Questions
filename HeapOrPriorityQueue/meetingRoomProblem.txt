@@ -1,0 +1,5 @@
+https://www.lintcode.com/problem/919/
+
+
+
+in busyman problem we need to find the maximum tasks so we are sorting via end time  but in meeting room we need to complete all tasks
