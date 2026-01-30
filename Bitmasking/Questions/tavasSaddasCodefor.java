@@ -10,7 +10,7 @@ public class tavasSaddasCodefor {
         int count = (1 << n) - 2;
         System.out.println(count);
         int pos = 0;
-        for (int i = s.length() - 1; i >= 0; i--) {
+        for (int i = s.length() - 1; i >= 0; i--) {q
             if (s.charAt(i) == '7') {
                 count += (1 << pos);
             }
